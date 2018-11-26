@@ -31,3 +31,12 @@ for container in containers:
     container.findAll("li", {"class":"price-ship"})
     shipping_container = container.findAll("li", {"class":"price-ship"})
     shipping = shipping_container[0].text.strip()
+    
+    print("brand: " + brand)
+    print("product_name: " + product_name)
+    print("shipping: " + shipping)
+    
+    f.write(brand + "," +product_name.replace(",", "|") + "," +shipping + "\n")
+    
+f.close()
+    
