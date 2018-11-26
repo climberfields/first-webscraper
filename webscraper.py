@@ -9,3 +9,17 @@ uClient = uReq(my_url)
 # when you read the page it will dump the information and you may not be able to access it again, use a variable to store it.
 page_html = uClient.read()
 uClient.close()
+# call BeautifulSoup to html parse it. Store it as a variable. 
+page_soup = soup(page_html, "html.parser")
+# use a function (this one we are using the findAll (remember camel case))
+#in the function we are calling the first item(div)
+#then we are inserting an object(class:item-container)
+#this grabs each product
+containers = page_soup.findall("div", {"class":"item-container"})
+
+filename = "products.csv"
+f = open(filename, "w")
+
+headers = "brand, product_name, shipping\n"
+
+f.write(headers)
