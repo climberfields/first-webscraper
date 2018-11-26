@@ -23,3 +23,11 @@ f = open(filename, "w")
 headers = "brand, product_name, shipping\n"
 
 f.write(headers)
+
+for container in containers:
+    brand = container.a.img["title"]
+    title_container = container.findAll("a", {"class":"item-title"})
+    product_name = title_container[0].text
+    container.findAll("li", {"class":"price-ship"})
+    shipping_container = container.findAll("li", {"class":"price-ship"})
+    shipping = shipping_container[0].text.strip()
